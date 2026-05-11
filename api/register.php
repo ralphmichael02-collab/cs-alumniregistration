@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $yearsOfService,
             $recentWork ?: null
         ]);
-        header('Location: success.php?name=' . urlencode($first));
+        header('Location: /api/success.php?name=' . urlencode($first));
         exit;
     }
 }
@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="head"><h1>College of Science Alumni</h1><p>Official registration — join our community</p></div>
   <div class="card"><div class="bar"></div><div class="inner">
   <?php if ($errors): ?><div class="error"><?= implode('<br>', $errors) ?></div><?php endif; ?>
-  <form method="POST">
+  <form method="POST" action="/api/register.php">
     <div class="sec">Personal Information</div>
     <div class="grid g3">
       <div class="field"><label>Last Name <span>*</span></label><input name="lastName" required value="<?= htmlspecialchars($_POST['lastName']??'') ?>"></div>
